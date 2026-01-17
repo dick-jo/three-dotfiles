@@ -1,0 +1,25 @@
+[general]
+import = ["~/.config/alacritty/themes/everforest_dark.toml"]
+live_config_reload = true
+
+[font]
+size = 14.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Medium"
+
+[window]
+blur = true
+decorations = "buttonless"
+dynamic_padding = true 
+opacity = 0.875
+option_as_alt = "Both"
+
+[window.padding]
+x = 4
+y = 4 
+
+[font.offset]
+x = 0
+y = 0 

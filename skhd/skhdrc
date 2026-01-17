@@ -1,0 +1,39 @@
+# Hyper Key Window Management (right_command = hyper via Karabiner)
+
+:: default
+:: swap
+:: warp
+
+# Focus
+hyper - h : yabai -m window --focus west
+hyper - j : yabai -m window --focus south
+hyper - k : yabai -m window --focus north
+hyper - l : yabai -m window --focus east
+hyper - u : yabai -m display --focus west
+hyper - i : yabai -m display --focus east
+
+# Mode entry
+hyper - s ; swap
+hyper - w ; warp
+
+# Swap mode (escape to exit)
+swap < h : yabai -m window --swap west
+swap < j : yabai -m window --swap south
+swap < k : yabai -m window --swap north
+swap < l : yabai -m window --swap east
+swap < u : yabai -m window --display west; yabai -m display --focus west
+swap < i : yabai -m window --display east; yabai -m display --focus east
+swap < escape ; default
+
+# Warp mode (escape to exit)
+warp < h : yabai -m window --warp west
+warp < j : yabai -m window --warp south
+warp < k : yabai -m window --warp north
+warp < l : yabai -m window --warp east
+warp < escape ; default
+
+# Other
+hyper - r : yabai -m space --rotate 90
+hyper - n : yabai -m window --toggle float --grid 4:4:1:1:2:2
+hyper - m : yabai -m window --toggle zoom-fullscreen
+hyper - e : yabai -m space --balance

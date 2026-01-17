@@ -1,0 +1,305 @@
+{
+    "profiles": [
+        {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Right Command to Hyper (hold) / Command (tap)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{
+                                    "key_code": "left_shift",
+                                    "modifiers": ["left_control", "left_option", "left_command"]
+                                }],
+                                "to_if_alone": [{ "key_code": "right_command" }]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Swap Left CMD and Left CTRL in Terminal Apps",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_control" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.alacritty$",
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "left_command" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 102,
+                        "vendor_id": 205
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_control" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "left_command" }]
+                        }
+                    ]
+                },
+                {
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f1" },
+                            "to": [{ "key_code": "f1" }]
+                        },
+                        {
+                            "from": { "key_code": "f2" },
+                            "to": [{ "key_code": "f2" }]
+                        },
+                        {
+                            "from": { "key_code": "f3" },
+                            "to": [{ "key_code": "f3" }]
+                        },
+                        {
+                            "from": { "key_code": "f4" },
+                            "to": [{ "key_code": "f4" }]
+                        },
+                        {
+                            "from": { "key_code": "f5" },
+                            "to": [{ "key_code": "f5" }]
+                        },
+                        {
+                            "from": { "key_code": "f6" },
+                            "to": [{ "key_code": "f6" }]
+                        },
+                        {
+                            "from": { "key_code": "f7" },
+                            "to": [{ "key_code": "f7" }]
+                        },
+                        {
+                            "from": { "key_code": "f8" },
+                            "to": [{ "key_code": "f8" }]
+                        },
+                        {
+                            "from": { "key_code": "f9" },
+                            "to": [{ "key_code": "f9" }]
+                        },
+                        {
+                            "from": { "key_code": "f10" },
+                            "to": [{ "key_code": "f10" }]
+                        },
+                        {
+                            "from": { "key_code": "f11" },
+                            "to": [{ "key_code": "f11" }]
+                        },
+                        {
+                            "from": { "key_code": "f12" },
+                            "to": [{ "key_code": "f12" }]
+                        }
+                    ],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 373,
+                        "vendor_id": 1241
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "left_command" }]
+                        }
+                    ]
+                },
+                {
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f1" },
+                            "to": [{ "key_code": "f1" }]
+                        },
+                        {
+                            "from": { "key_code": "f2" },
+                            "to": [{ "key_code": "f2" }]
+                        },
+                        {
+                            "from": { "key_code": "f3" },
+                            "to": [{ "key_code": "f3" }]
+                        },
+                        {
+                            "from": { "key_code": "f4" },
+                            "to": [{ "key_code": "f4" }]
+                        },
+                        {
+                            "from": { "key_code": "f5" },
+                            "to": [{ "key_code": "f5" }]
+                        },
+                        {
+                            "from": { "key_code": "f6" },
+                            "to": [{ "key_code": "f6" }]
+                        },
+                        {
+                            "from": { "key_code": "f7" },
+                            "to": [{ "key_code": "f7" }]
+                        },
+                        {
+                            "from": { "key_code": "f8" },
+                            "to": [{ "key_code": "f8" }]
+                        },
+                        {
+                            "from": { "key_code": "f9" },
+                            "to": [{ "key_code": "f9" }]
+                        },
+                        {
+                            "from": { "key_code": "f10" },
+                            "to": [{ "key_code": "f10" }]
+                        },
+                        {
+                            "from": { "key_code": "f11" },
+                            "to": [{ "key_code": "f11" }]
+                        },
+                        {
+                            "from": { "key_code": "f12" },
+                            "to": [{ "key_code": "f12" }]
+                        }
+                    ],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 16962,
+                        "vendor_id": 65261
+                    },
+                    "manipulate_caps_lock_led": false,
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "left_command" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_control" }]
+                        }
+                    ]
+                },
+                {
+                    "fn_function_keys": [
+                        {
+                            "from": { "key_code": "f1" },
+                            "to": [{ "key_code": "f1" }]
+                        },
+                        {
+                            "from": { "key_code": "f2" },
+                            "to": [{ "key_code": "f2" }]
+                        },
+                        {
+                            "from": { "key_code": "f3" },
+                            "to": [{ "key_code": "f3" }]
+                        },
+                        {
+                            "from": { "key_code": "f4" },
+                            "to": [{ "key_code": "f4" }]
+                        },
+                        {
+                            "from": { "key_code": "f5" },
+                            "to": [{ "key_code": "f5" }]
+                        },
+                        {
+                            "from": { "key_code": "f6" },
+                            "to": [{ "key_code": "f6" }]
+                        },
+                        {
+                            "from": { "key_code": "f7" },
+                            "to": [{ "key_code": "f7" }]
+                        },
+                        {
+                            "from": { "key_code": "f8" },
+                            "to": [{ "key_code": "f8" }]
+                        },
+                        {
+                            "from": { "key_code": "f9" },
+                            "to": [{ "key_code": "f9" }]
+                        },
+                        {
+                            "from": { "key_code": "f10" },
+                            "to": [{ "key_code": "f10" }]
+                        },
+                        {
+                            "from": { "key_code": "f11" },
+                            "to": [{ "key_code": "f11" }]
+                        },
+                        {
+                            "from": { "key_code": "f12" },
+                            "to": [{ "key_code": "f12" }]
+                        }
+                    ],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 32,
+                        "vendor_id": 1278
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_control" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "left_command" }]
+                        }
+                    ]
+                }
+            ],
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": {
+                "country_code": 0,
+                "keyboard_type_v2": "ansi"
+            }
+        }
+    ]
+}
