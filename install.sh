@@ -6,35 +6,35 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Installing dotfiles from $DOTFILES_DIR"
 
 # Create config directories if they don't exist
-mkdir -p ~/.config/skhd
-mkdir -p ~/.config/yabai
-mkdir -p ~/.config/karabiner
-mkdir -p ~/.config/alacritty
+mkdir -p ~/.config
 
 # Backup existing configs (if they exist and aren't symlinks)
 backup_if_exists() {
-    if [ -f "$1" ] && [ ! -L "$1" ]; then
+    if [ -e "$1" ] && [ ! -L "$1" ]; then
         echo "Backing up $1 to $1.backup"
         mv "$1" "$1.backup"
     fi
 }
 
-backup_if_exists ~/.config/skhd/skhdrc
-backup_if_exists ~/.config/yabai/yabairc
-backup_if_exists ~/.config/karabiner/karabiner.json
-backup_if_exists ~/.config/alacritty/alacritty.toml
+backup_if_exists ~/.config/skhd
+backup_if_exists ~/.config/yabai
+backup_if_exists ~/.config/karabiner
+backup_if_exists ~/.config/alacritty
+backup_if_exists ~/.config/nvim
 
-# Create symlinks
-ln -sf "$DOTFILES_DIR/skhd/skhdrc" ~/.config/skhd/skhdrc
-ln -sf "$DOTFILES_DIR/yabai/yabairc" ~/.config/yabai/yabairc
-ln -sf "$DOTFILES_DIR/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
-ln -sf "$DOTFILES_DIR/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
+# Create symlinks (link entire directories)
+ln -sfn "$DOTFILES_DIR/skhd" ~/.config/skhd
+ln -sfn "$DOTFILES_DIR/yabai" ~/.config/yabai
+ln -sfn "$DOTFILES_DIR/karabiner" ~/.config/karabiner
+ln -sfn "$DOTFILES_DIR/alacritty" ~/.config/alacritty
+ln -sfn "$DOTFILES_DIR/nvim" ~/.config/nvim
 
 echo "Symlinks created:"
-echo "  ~/.config/skhd/skhdrc -> $DOTFILES_DIR/skhd/skhdrc"
-echo "  ~/.config/yabai/yabairc -> $DOTFILES_DIR/yabai/yabairc"
-echo "  ~/.config/karabiner/karabiner.json -> $DOTFILES_DIR/karabiner/karabiner.json"
-echo "  ~/.config/alacritty/alacritty.toml -> $DOTFILES_DIR/alacritty/alacritty.toml"
+echo "  ~/.config/skhd -> $DOTFILES_DIR/skhd"
+echo "  ~/.config/yabai -> $DOTFILES_DIR/yabai"
+echo "  ~/.config/karabiner -> $DOTFILES_DIR/karabiner"
+echo "  ~/.config/alacritty -> $DOTFILES_DIR/alacritty"
+echo "  ~/.config/nvim -> $DOTFILES_DIR/nvim"
 
 # Restart services
 echo ""
@@ -49,4 +49,4 @@ if command -v yabai &> /dev/null; then
 fi
 
 echo ""
-echo "Done! Karabiner should auto-reload. You may need to restart alacritty."
+echo "Done! Karabiner should auto-reload. You may need to restart alacritty and nvim."

@@ -1,19 +1,16 @@
 # three-dotfiles
 
-Window management and terminal configs for macOS. Works with HHKB, MacBook keyboard, or HHKB connected to MacBook.
+Window management, terminal, and nvim configs for macOS. Works with HHKB, MacBook keyboard, or HHKB connected to MacBook.
 
 ## What's Included
 
 | Config | Purpose |
 |--------|---------|
-| `skhd/skhdrc` | Hotkey daemon - window management keybindings |
-| `yabai/yabairc` | Tiling window manager config |
-| `karabiner/karabiner.json` | Keyboard remapping (hyper key, caps→cmd, terminal ctrl/cmd swap) |
-| `alacritty/alacritty.toml` | Terminal emulator config (opacity, font, padding) |
-
-## Related Repos
-
-- **nvim config**: [three-nvim](https://github.com/dick-jo/three-nvim) (managed separately)
+| `skhd/` | Hotkey daemon - window management keybindings |
+| `yabai/` | Tiling window manager config |
+| `karabiner/` | Keyboard remapping (hyper key, caps→cmd, terminal ctrl/cmd swap) |
+| `alacritty/` | Terminal emulator config (opacity, font, padding) |
+| `nvim/` | Neovim config (nvchad-based, custom plugins, LSPs) |
 
 ## Keybinding Reference
 
@@ -38,14 +35,8 @@ Hyper key = `right_command` (right side of spacebar)
 ### Fresh Install (New Machine)
 
 ```
-Clone this repo to ~/three-dotfiles and run the install script:
-
 git clone https://github.com/dick-jo/three-dotfiles.git ~/three-dotfiles
 cd ~/three-dotfiles && ./install.sh
-
-Then clone nvim config:
-
-git clone https://github.com/dick-jo/three-nvim.git ~/.config/nvim
 ```
 
 ### Pull Latest and Apply
@@ -55,32 +46,13 @@ cd ~/three-dotfiles && git pull
 ./install.sh
 ```
 
-### After Making Local Config Changes
-
-If configs were edited directly in ~/.config (not via the symlinked repo):
+### Push Local Changes
 
 ```
-cd ~/three-dotfiles
-cp ~/.config/skhd/skhdrc skhd/skhdrc
-cp ~/.config/yabai/yabairc yabai/yabairc
-cp ~/.config/karabiner/karabiner.json karabiner/karabiner.json
-cp ~/.config/alacritty/alacritty.toml alacritty/alacritty.toml
-git add -A && git commit -m "Update configs" && git push
+cd ~/three-dotfiles && git add -A && git commit -m "Update configs" && git push
 ```
 
-Note: After install.sh runs, configs are symlinked, so edits to ~/.config/* automatically edit the repo files.
-
-### Sync nvim Config
-
-```
-cd ~/.config/nvim && git pull
-```
-
-Or to push nvim changes:
-
-```
-cd ~/.config/nvim && git add -A && git commit -m "Update nvim config" && git push
-```
+Note: All configs in ~/.config/* are symlinked to ~/three-dotfiles/*, so edits anywhere automatically edit the repo.
 
 ---
 
@@ -93,6 +65,8 @@ brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
 brew install --cask karabiner-elements
 brew install --cask alacritty
+brew install neovim
+brew install ripgrep fd node
 ```
 
 Start services:
