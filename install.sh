@@ -9,7 +9,7 @@ echo "Installing dotfiles from $DOTFILES_DIR"
 mkdir -p ~/.config/skhd
 mkdir -p ~/.config/yabai
 mkdir -p ~/.config/karabiner
-mkdir -p ~/.config/alacritty/themes
+mkdir -p ~/.config/alacritty
 
 # Backup existing configs (if they exist and aren't symlinks)
 backup_if_exists() {
@@ -23,21 +23,18 @@ backup_if_exists ~/.config/skhd/skhdrc
 backup_if_exists ~/.config/yabai/yabairc
 backup_if_exists ~/.config/karabiner/karabiner.json
 backup_if_exists ~/.config/alacritty/alacritty.toml
-backup_if_exists ~/.config/alacritty/themes/everforest_dark.toml
 
 # Create symlinks
 ln -sf "$DOTFILES_DIR/skhd/skhdrc" ~/.config/skhd/skhdrc
 ln -sf "$DOTFILES_DIR/yabai/yabairc" ~/.config/yabai/yabairc
 ln -sf "$DOTFILES_DIR/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
 ln -sf "$DOTFILES_DIR/alacritty/alacritty.toml" ~/.config/alacritty/alacritty.toml
-ln -sf "$DOTFILES_DIR/alacritty/themes/everforest_dark.toml" ~/.config/alacritty/themes/everforest_dark.toml
 
 echo "Symlinks created:"
 echo "  ~/.config/skhd/skhdrc -> $DOTFILES_DIR/skhd/skhdrc"
 echo "  ~/.config/yabai/yabairc -> $DOTFILES_DIR/yabai/yabairc"
 echo "  ~/.config/karabiner/karabiner.json -> $DOTFILES_DIR/karabiner/karabiner.json"
 echo "  ~/.config/alacritty/alacritty.toml -> $DOTFILES_DIR/alacritty/alacritty.toml"
-echo "  ~/.config/alacritty/themes/everforest_dark.toml -> $DOTFILES_DIR/alacritty/themes/everforest_dark.toml"
 
 # Restart services
 echo ""

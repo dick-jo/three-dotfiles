@@ -9,7 +9,7 @@ Window management and terminal configs for macOS. Works with HHKB, MacBook keybo
 | `skhd/skhdrc` | Hotkey daemon - window management keybindings |
 | `yabai/yabairc` | Tiling window manager config |
 | `karabiner/karabiner.json` | Keyboard remapping (hyper key, caps→cmd, terminal ctrl/cmd swap) |
-| `alacritty/` | Terminal emulator config + everforest theme |
+| `alacritty/alacritty.toml` | Terminal emulator config (opacity, font, padding) |
 
 ## Related Repos
 
@@ -17,7 +17,7 @@ Window management and terminal configs for macOS. Works with HHKB, MacBook keybo
 
 ## Keybinding Reference
 
-Hyper key = `right_command` (right ⌘, to the right of spacebar)
+Hyper key = `right_command` (right side of spacebar)
 
 | Action | Keys |
 |--------|------|
