@@ -30,7 +30,10 @@ vim.lsp.enable {
 }
 
 vim.diagnostic.config {
-  virtual_text = true,
+  -- virtual_lines wraps long diagnostics onto their own line instead of overflowing
+  -- off the right side. current_line = true keeps them scoped to the cursor line only.
+  virtual_text = false,
+  virtual_lines = { current_line = true },
   signs = true,
   underline = true,
 }
