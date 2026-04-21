@@ -1,16 +1,10 @@
 -- configs/lspconfig.lua
-local lspconfig = require "lspconfig"
+-- Uses nvim 0.11+ vim.lsp.config / vim.lsp.enable (old require('lspconfig') wrapper
+-- is deprecated and removed in nvim-lspconfig v3). Default server configs ship
+-- inside nvim-lspconfig's lsp/ dir and are picked up automatically on enable.
+-- rust-analyzer is configured by rustaceanvim in plugins/init.lua, not here.
 
--- Simple on_attach - just for debugging
--- local on_attach = function(client, bufnr)
---   print("✅ LSP connected: " .. client.name .. " for " .. vim.bo[bufnr].filetype)
--- That's it! NvChad handles the keymaps
--- end
-
--- Your language servers
-lspconfig.ts_ls.setup { on_attach = on_attach }
-lspconfig.svelte.setup {
-  on_attach = on_attach,
+vim.lsp.config("svelte", {
   settings = {
     svelte = {
       plugin = {
@@ -20,24 +14,29 @@ lspconfig.svelte.setup {
       },
     },
   },
-}
-lspconfig.cssls.setup { on_attach = on_attach }
-lspconfig.html.setup { on_attach = on_attach }
-lspconfig.emmet_ls.setup {
-  on_attach = on_attach,
-  filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
-}
+})
 
--- WGSL (WebGPU shading language). rust-analyzer is configured by rustaceanvim in plugins/init.lua.
-lspconfig.wgsl_analyzer.setup { on_attach = on_attach }
+vim.lsp.config("emmet_ls", {
+  filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
+})
+
+vim.lsp.config("copilot", {
+  cmd = { "copilot-language-server", "--stdio" },
+  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
+})
+
+vim.lsp.enable {
+  "ts_ls",
+  "svelte",
+  "cssls",
+  "html",
+  "emmet_ls",
+  "wgsl_analyzer",
+  "copilot",
+}
 
 vim.diagnostic.config {
   virtual_text = true,
   signs = true,
   underline = true,
 }
-
-vim.lsp.enable("copilot", {
-  cmd = { "copilot-language-server", "--stdio" },
-  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
-})
