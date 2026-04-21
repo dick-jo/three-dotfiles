@@ -312,4 +312,15 @@ return {
     lazy = false,
     ft = { "rust" },
   },
+
+  -- CRATES (Cargo.toml tooling: hover, completion, version updates)
+  {
+    "saecki/crates.nvim",
+    ft = { "toml" },
+    opts = {
+      completion = {
+        cmp = { enabled = true },
+      },
+    },
+  },
 }
