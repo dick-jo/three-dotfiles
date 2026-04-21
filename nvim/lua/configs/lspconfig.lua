@@ -20,11 +20,6 @@ vim.lsp.config("emmet_ls", {
   filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
 })
 
-vim.lsp.config("copilot", {
-  cmd = { "copilot-language-server", "--stdio" },
-  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte" },
-})
-
 vim.lsp.enable {
   "ts_ls",
   "svelte",
@@ -32,7 +27,6 @@ vim.lsp.enable {
   "html",
   "emmet_ls",
   "wgsl_analyzer",
-  "copilot",
 }
 
 vim.diagnostic.config {
