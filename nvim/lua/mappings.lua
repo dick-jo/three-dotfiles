@@ -34,6 +34,11 @@ map("n", "<leader>gg", function()
   require("snacks").lazygit()
 end, { desc = "Lazygit" })
 
+-- Notification history
+map("n", "<leader>nh", function()
+  Snacks.notifier.show_history()
+end, { desc = "Notification history" })
+
 -- Disable smooth scroll for gg/G (instant jump to top/bottom)
 map("n", "gg", function()
   Snacks.scroll.disable()
