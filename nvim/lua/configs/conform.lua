@@ -8,6 +8,7 @@ local options = {
     svelte = { "prettierd" },
     typescriptreact = { "prettierd" },
     javascriptreact = { "prettierd" },
+    rust = { "rustfmt" },
   },
 
   format_on_save = {

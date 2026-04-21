@@ -28,6 +28,9 @@ lspconfig.emmet_ls.setup {
   filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte" },
 }
 
+-- WGSL (WebGPU shading language). rust-analyzer is configured by rustaceanvim in plugins/init.lua.
+lspconfig.wgsl_analyzer.setup { on_attach = on_attach }
+
 vim.diagnostic.config {
   virtual_text = true,
   signs = true,

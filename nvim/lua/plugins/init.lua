@@ -32,6 +32,9 @@ return {
         "svelte",
         "scss",
         "json",
+        "rust",
+        "wgsl",
+        "toml",
       },
 
       highlight = {
@@ -278,5 +281,35 @@ return {
         -- Configuration here, or leave empty to use defaults
       }
     end,
+  },
+
+  -- JSX/TSX context-aware comments
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = false,
+    config = function()
+      require("ts_context_commentstring").setup {
+        enable_autocmd = false,
+      }
+    end,
+  },
+
+  -- Comment.nvim override to use ts-context-commentstring
+  {
+    "numToStr/Comment.nvim",
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+    opts = function()
+      return {
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      }
+    end,
+  },
+
+  -- RUST (rustaceanvim replaces lspconfig.rust_analyzer with extras: inlay hints, runnables, debug)
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^6",
+    lazy = false,
+    ft = { "rust" },
   },
 }
