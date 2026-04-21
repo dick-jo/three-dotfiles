@@ -122,6 +122,7 @@ return {
     opts = {
       picker = { enabled = true },
       lazygit = { enabled = true },
+      notifier = { enabled = true }, -- floating toasts; includes LSP progress
       indent = {
         enabled = true,
         scope = {
