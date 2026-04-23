@@ -148,12 +148,12 @@ return {
         mux = {
           enabled = false, -- Keep this disabled since you don't use tmux/zellij
         },
-      },
-      win = {
-        layout = "right", -- or "bottom" if you prefer horizontal split
-        split = {
-          width = 0, -- 0 = use default vim split width (50/50)
-          height = 0, -- 0 = use default vim split height (50/50)
+        win = {
+          layout = "right", -- or "bottom" if you prefer horizontal split
+          split = {
+            width = 90, -- fixed column count; clamped to available space on smaller screens
+            height = 20,
+          },
         },
       },
     },
