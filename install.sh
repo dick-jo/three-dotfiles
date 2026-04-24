@@ -36,12 +36,17 @@ ln -sf "$DOTFILES_DIR/karabiner/karabiner.json" ~/.config/karabiner/karabiner.js
 backup_if_exists ~/.config/nvim
 ln -sfn "$DOTFILES_DIR/nvim" ~/.config/nvim
 
+# --- ghostty (directory symlink) ---
+backup_if_exists ~/.config/ghostty
+ln -sfn "$DOTFILES_DIR/ghostty" ~/.config/ghostty
+
 echo "Symlinks created:"
 echo "  ~/.config/skhd -> $DOTFILES_DIR/skhd"
 echo "  ~/.config/yabai -> $DOTFILES_DIR/yabai"
 echo "  ~/.config/alacritty -> $DOTFILES_DIR/alacritty"
 echo "  ~/.config/karabiner/karabiner.json -> $DOTFILES_DIR/karabiner/karabiner.json"
 echo "  ~/.config/nvim -> $DOTFILES_DIR/nvim"
+echo "  ~/.config/ghostty -> $DOTFILES_DIR/ghostty"
 
 # Restart services
 echo ""

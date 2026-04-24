@@ -1,0 +1,8 @@
+# Font ----------------------------------------------------------------
+font-family = "JetBrainsMono Nerd Font"
+font-style = "Medium"
+font-size = 14
+
+# Behaviour -----------------------------------------------------------
+# Treat both option keys as Alt (so nvim/tmux see them).
+macos-option-as-alt = true
