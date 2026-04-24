@@ -1,8 +1,17 @@
-# Font ----------------------------------------------------------------
-font-family = "JetBrainsMono Nerd Font"
-font-style = "Medium"
+# FONT
+font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 14
+font-thicken = true
+bold-is-bright = true
 
-# Behaviour -----------------------------------------------------------
-# Treat both option keys as Alt (so nvim/tmux see them).
+# WINDOW
+background = 1a1a1a
+background-opacity = 0.85
+background-blur-radius = 80
+window-padding-balance = true
+
+# MACOS
+macos-titlebar-style = hidden
 macos-option-as-alt = true
+window-padding-x = 0
+window-padding-y = 0

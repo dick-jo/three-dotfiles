@@ -36,9 +36,15 @@ ln -sf "$DOTFILES_DIR/karabiner/karabiner.json" ~/.config/karabiner/karabiner.js
 backup_if_exists ~/.config/nvim
 ln -sfn "$DOTFILES_DIR/nvim" ~/.config/nvim
 
-# --- ghostty (directory symlink) ---
+# --- ghostty (directory symlink for XDG path) ---
 backup_if_exists ~/.config/ghostty
 ln -sfn "$DOTFILES_DIR/ghostty" ~/.config/ghostty
+
+# --- ghostty (file symlink for macOS-default path; this path wins over XDG) ---
+GHOSTTY_MAC_DIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
+mkdir -p "$GHOSTTY_MAC_DIR"
+backup_if_exists "$GHOSTTY_MAC_DIR/config"
+ln -sf "$DOTFILES_DIR/ghostty/config" "$GHOSTTY_MAC_DIR/config"
 
 echo "Symlinks created:"
 echo "  ~/.config/skhd -> $DOTFILES_DIR/skhd"
@@ -47,6 +53,7 @@ echo "  ~/.config/alacritty -> $DOTFILES_DIR/alacritty"
 echo "  ~/.config/karabiner/karabiner.json -> $DOTFILES_DIR/karabiner/karabiner.json"
 echo "  ~/.config/nvim -> $DOTFILES_DIR/nvim"
 echo "  ~/.config/ghostty -> $DOTFILES_DIR/ghostty"
+echo "  $GHOSTTY_MAC_DIR/config -> $DOTFILES_DIR/ghostty/config"
 
 # Restart services
 echo ""
