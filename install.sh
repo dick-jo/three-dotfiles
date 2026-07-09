@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -37,14 +37,12 @@ backup_if_exists ~/.config/nvim
 ln -sfn "$DOTFILES_DIR/nvim" ~/.config/nvim
 
 # --- ghostty (directory symlink for XDG path) ---
+# Ghostty reads ~/.config/ghostty/config on macOS, so the XDG symlink is all we
+# need. (Earlier this also symlinked ~/Library/Application Support/com.mitchellh.ghostty/config,
+# but that made ghostty load the same file twice — duplicate font-family entries
+# and doubled-up config errors. One canonical path is enough.)
 backup_if_exists ~/.config/ghostty
 ln -sfn "$DOTFILES_DIR/ghostty" ~/.config/ghostty
-
-# --- ghostty (file symlink for macOS-default path; this path wins over XDG) ---
-GHOSTTY_MAC_DIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
-mkdir -p "$GHOSTTY_MAC_DIR"
-backup_if_exists "$GHOSTTY_MAC_DIR/config"
-ln -sf "$DOTFILES_DIR/ghostty/config" "$GHOSTTY_MAC_DIR/config"
 
 echo "Symlinks created:"
 echo "  ~/.config/skhd -> $DOTFILES_DIR/skhd"
@@ -53,7 +51,6 @@ echo "  ~/.config/alacritty -> $DOTFILES_DIR/alacritty"
 echo "  ~/.config/karabiner/karabiner.json -> $DOTFILES_DIR/karabiner/karabiner.json"
 echo "  ~/.config/nvim -> $DOTFILES_DIR/nvim"
 echo "  ~/.config/ghostty -> $DOTFILES_DIR/ghostty"
-echo "  $GHOSTTY_MAC_DIR/config -> $DOTFILES_DIR/ghostty/config"
 
 # Restart services
 echo ""

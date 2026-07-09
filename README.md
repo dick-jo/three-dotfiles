@@ -9,7 +9,8 @@ Window management, terminal, and nvim configs for macOS. Works with HHKB, MacBoo
 | `skhd/` | Hotkey daemon - window management keybindings |
 | `yabai/` | Tiling window manager config |
 | `karabiner/` | Keyboard remapping (hyper key, caps→cmd, terminal ctrl/cmd swap) |
-| `alacritty/` | Terminal emulator config (opacity, font, padding) |
+| `ghostty/` | Terminal emulator config (primary terminal — opacity, blur, font, padding) |
+| `alacritty/` | Terminal emulator config (fallback — opacity, font, padding) |
 | `nvim/` | Neovim config (nvchad-based, custom plugins, LSPs) |
 
 ## Keybinding Reference
@@ -19,14 +20,21 @@ Hyper key = `right_command` (right side of spacebar)
 | Action | Keys |
 |--------|------|
 | Focus window | `hyper + h/j/k/l` |
-| Focus display | `hyper + u/i` |
+| Focus display | `hyper + [` / `]` |
+| Focus space 1–6 | `hyper + 1`…`6` |
+| Focus recent space | `hyper + tab` |
+| Focus prev/next space | `hyper + ←` / `→` |
 | Swap mode | `hyper + s` → then `h/j/k/l` |
+| ↳ move window to display | in swap mode: `[` / `]` |
+| ↳ move window to space 1–6 | in swap mode: `1`…`6` |
 | Warp mode | `hyper + w` → then `h/j/k/l` |
 | Exit mode | `escape` |
 | Rotate layout | `hyper + r` |
 | Toggle float | `hyper + n` |
 | Fullscreen | `hyper + m` |
 | Rebalance | `hyper + e` |
+
+> Space focus/move bindings require yabai's scripting addition to be loaded.
 
 ---
 
