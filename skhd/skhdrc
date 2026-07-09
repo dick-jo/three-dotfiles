@@ -9,8 +9,9 @@ hyper - h : yabai -m window --focus west
 hyper - j : yabai -m window --focus south
 hyper - k : yabai -m window --focus north
 hyper - l : yabai -m window --focus east
-hyper - u : yabai -m display --focus west
-hyper - i : yabai -m display --focus east
+# [ = focus display west, ] = focus display east
+hyper - 0x21 : yabai -m display --focus west
+hyper - 0x1E : yabai -m display --focus east
 
 # Mode entry
 hyper - s ; swap
@@ -21,8 +22,14 @@ swap < h : yabai -m window --swap west
 swap < j : yabai -m window --swap south
 swap < k : yabai -m window --swap north
 swap < l : yabai -m window --swap east
-swap < u : yabai -m window --display west; yabai -m display --focus west
-swap < i : yabai -m window --display east; yabai -m display --focus east
+swap < 0x21 : yabai -m window --display west; yabai -m display --focus west
+swap < 0x1E : yabai -m window --display east; yabai -m display --focus east
+swap < 1 : yabai -m window --space 1; yabai -m space --focus 1
+swap < 2 : yabai -m window --space 2; yabai -m space --focus 2
+swap < 3 : yabai -m window --space 3; yabai -m space --focus 3
+swap < 4 : yabai -m window --space 4; yabai -m space --focus 4
+swap < 5 : yabai -m window --space 5; yabai -m space --focus 5
+swap < 6 : yabai -m window --space 6; yabai -m space --focus 6
 swap < escape ; default
 
 # Warp mode (escape to exit)
@@ -31,6 +38,17 @@ warp < j : yabai -m window --warp south
 warp < k : yabai -m window --warp north
 warp < l : yabai -m window --warp east
 warp < escape ; default
+
+# Spaces (requires scripting addition)
+hyper - 1 : yabai -m space --focus 1
+hyper - 2 : yabai -m space --focus 2
+hyper - 3 : yabai -m space --focus 3
+hyper - 4 : yabai -m space --focus 4
+hyper - 5 : yabai -m space --focus 5
+hyper - 6 : yabai -m space --focus 6
+hyper - tab : yabai -m space --focus recent
+hyper - left : yabai -m space --focus prev || yabai -m space --focus last
+hyper - right : yabai -m space --focus next || yabai -m space --focus first
 
 # Other
 hyper - r : yabai -m space --rotate 90

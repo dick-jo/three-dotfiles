@@ -99,16 +99,19 @@ return {
     "nvim-telescope/telescope.nvim",
     opts = {
       defaults = {
-        hidden = true, -- show hidden files
-        file_ignore_patterns = {
-          "node_modules/.*",
-          ".git/.*",
-          ".DS_Store",
-          "dist/.*",
-          "build/.*",
-          ".next/.*", -- for Next.js builds
-          "coverage/.*",
-          ".env.local", -- but keep .env visible!
+        -- These are Lua patterns, NOT globs (a bare "." is a wildcard, which is
+        -- why ".next/.*" silently ate "market-next/" strangler files). Keep this
+        -- minimal: build/output dirs (.next, dist, build, coverage) are already
+        -- excluded by .gitignore, so rg/fd never emit them. node_modules is the
+        -- one backstop worth keeping (useful even in non-git directories).
+        file_ignore_patterns = { "node_modules/" },
+      },
+      pickers = {
+        -- `hidden` is a find_files option, not a `defaults` one — under defaults
+        -- it was a no-op. Here it actually shows dotfiles (.eslintrc, etc.);
+        -- gitignored dotfiles like .env.local stay hidden via .gitignore.
+        find_files = {
+          hidden = true,
         },
       },
     },
