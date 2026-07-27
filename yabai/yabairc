@@ -26,7 +26,7 @@ yabai -m config mouse_drop_action swap
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Karabiner-elements$" manage=off
 
-yabai -m rule --add app="^CleanShot X$" manage=off
+yabai -m rule --add app="^CleanShot" manage=off mouse_follows_focus=off
 
 yabai -m rule --add app="^CLIP STUDIO PAINT$" manage=off
 yabai -m rule --add app="^Clip Studio Paint$" manage=off

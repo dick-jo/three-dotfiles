@@ -1,13 +1,13 @@
 # FONT
 font-family = "JetBrainsMono Nerd Font Mono"
-font-size = 13
+font-size = 14
 font-thicken = true
 bold-is-bright = true
 
 # WINDOW
 background = 1a1a1a
 background-opacity = 0.85
-background-blur-radius = 80
+background-blur-radius = 120
 window-padding-balance = true
 
 # MACOS
