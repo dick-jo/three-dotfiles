@@ -39,16 +39,13 @@ warp < k : yabai -m window --warp north
 warp < l : yabai -m window --warp east
 warp < escape ; default
 
-# Spaces (requires scripting addition)
-hyper - 1 : yabai -m space --focus 1
-hyper - 2 : yabai -m space --focus 2
-hyper - 3 : yabai -m space --focus 3
-hyper - 4 : yabai -m space --focus 4
-hyper - 5 : yabai -m space --focus 5
-hyper - 6 : yabai -m space --focus 6
-hyper - tab : yabai -m space --focus recent
-hyper - left : yabai -m space --focus prev || yabai -m space --focus last
-hyper - right : yabai -m space --focus next || yabai -m space --focus first
+# Spaces: handled natively by macOS, not yabai.
+# yabai's `space --focus` is broken on macOS 27 (scripting addition won't load,
+# upstream unmaintained). hyper-1..6 and hyper-left/right are bound in
+# System Settings > Keyboard > Shortcuts > Mission Control
+# (com.apple.symbolichotkeys 118-123, 79, 81; see macos/space-shortcuts.sh).
+# skhd must NOT bind these keys or it swallows them before macOS sees them.
+# hyper - tab : yabai -m space --focus recent   # no native equivalent
 
 # Other
 hyper - r : yabai -m space --rotate 90
