@@ -21,6 +21,27 @@
                         ]
                     },
                     {
+                        "description": "Block hyper+comma/period (macOS sysdiagnose shortcut)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": { "mandatory": ["command", "control", "option", "shift"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": { "mandatory": ["command", "control", "option", "shift"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Swap Left CMD and Left CTRL in Terminal Apps",
                         "manipulators": [
                             {
