@@ -52,6 +52,11 @@ echo "  ~/.config/karabiner/karabiner.json -> $DOTFILES_DIR/karabiner/karabiner.
 echo "  ~/.config/nvim -> $DOTFILES_DIR/nvim"
 echo "  ~/.config/ghostty -> $DOTFILES_DIR/ghostty"
 
+# --- macOS native shortcuts (hyper-1..6, hyper-left/right switch desktops) ---
+echo ""
+echo "Setting macOS desktop-switching shortcuts..."
+"$DOTFILES_DIR/macos/space-shortcuts.sh"
+
 # Restart services
 echo ""
 echo "Restarting services..."
